@@ -23,6 +23,7 @@ class SiteController extends Controller
             return redirect()->back();
         }
 
+        //se comentar a linha de baixo ele redireciona corretamente para rota register.
         session()->put('plan', $plan);
 
         return redirect()->route('register');
