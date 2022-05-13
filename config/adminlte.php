@@ -253,6 +253,11 @@ return [
             'url'         => 'admin/permissions',
             'icon'        => 'fa fa-solid fa-lock',
         ],
+        [
+            'text'        => 'Usuários',
+            'url'         => 'admin/users',
+            'icon'        => 'fa fa-solid fa-users',
+        ],
     ],
 
     /*

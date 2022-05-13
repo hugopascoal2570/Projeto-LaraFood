@@ -8,10 +8,15 @@ use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\DetailPlanController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Site\SiteController;
-
+use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+
+    //routes users 
+    Route::any('users/search', [UserController::class, 'search'])->name('users.search');
+    Route::resource('users', UserController::class);
 
     //routes plan x profiles
     Route::get('plans/{id}/profile/{idProfile}/detach', [PlanProfileController::class, 'detachProfilePlan'])->name('plans.profile.detach');
@@ -64,5 +69,3 @@ Route::get('/plan/{url}', [SiteController::class, 'plan'])->name('plan.subscript
 Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
