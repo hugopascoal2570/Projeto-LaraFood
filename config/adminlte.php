@@ -258,6 +258,11 @@ return [
             'url'         => 'admin/users',
             'icon'        => 'fa fa-solid fa-users',
         ],
+        [
+            'text'        => 'Categorias',
+            'url'         => 'admin/categories',
+            'icon'        => 'fa fa-solid fa-layer-group',
+        ],
     ],
 
     /*
