@@ -56,7 +56,6 @@ class User extends Authenticatable
         return $query->where('tenant_id', auth()->user()->tenant_id);
     }
 
-
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);
