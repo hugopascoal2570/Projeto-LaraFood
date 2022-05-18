@@ -268,6 +268,11 @@ return [
             'url'         => 'admin/products',
             'icon'        => 'fa fa-solid fas fa-hamburger',
         ],
+        [
+            'text'        => 'Mesas',
+            'url'         => 'admin/tables',
+            'icon'        => 'fa fa-solid fas fa-tablet-alt',
+        ],
     ],
 
     /*
