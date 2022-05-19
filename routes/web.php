@@ -12,17 +12,22 @@ use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TableController;
+use App\Http\Controllers\Admin\TenantController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Site\SiteController;
+use App\Models\Tenant;
 use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
 
+    //routes tenants 
+    Route::any('tenants/search', [TableController::class, 'search'])->name('tenants.search');
+    Route::resource('tenants', TenantController::class);
+
     //routes tables 
     Route::any('tables/search', [TableController::class, 'search'])->name('tables.search');
     Route::resource('tables', TableController::class);
-
 
     //routes products x categories
     Route::get('products/{id}/category/{idCategory}/detach', [CategoryProductController::class, 'detachCategoryProduct'])->name('products.category.detach');
