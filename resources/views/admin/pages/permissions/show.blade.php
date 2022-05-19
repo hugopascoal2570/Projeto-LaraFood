@@ -1,30 +1,30 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes da Permissão { $permissions->name }")
+@section('title', "Detalhes da permissão {$permission->name}")
 
 @section('content_header')
-    <h1>Detalhes do plano{{ $permissions->name }}</h1>
-
+    <h1>Detalhes da permissão <b>{{ $permission->name }}</b></h1>
 @stop
 
 @section('content')
-    @include('admin.includes.alerts')
     <div class="card">
-        <div class="car-body">
+        <div class="card-body">
             <ul>
                 <li>
-                    <strong>Nome: </strong>{{ $permissions->name }}
+                    <strong>Nome: </strong> {{ $permission->name }}
                 </li>
                 <li>
-                    <strong>Descrição: </strong>{{ $permissions->description }}
+                    <strong>Descrição: </strong> {{ $permission->description }}
                 </li>
             </ul>
-        </div>
 
+            @include('admin.includes.alerts')
+
+            <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O PERFIL: {{ $permission->name }}</button>
+            </form>
+        </div>
     </div>
-    <form action="{{ route('permissions.destroy', ['permission' => $permissions->id]) }}" method="POST">
-        @method('DELETE')
-        @csrf
-        <button type="submit" class="btn btn-danger">Deletar o {{ $permissions->name }}</button>
-    </form>
-@stop
+@endsection

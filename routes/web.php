@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\ACL\PermissionProfileController;
 use App\Http\Controllers\Admin\ACL\PermissionRoleController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
-
+use App\Http\Controllers\Admin\ACL\RoleUserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\PlanController;
@@ -23,14 +23,21 @@ use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
+
+    //routes role x user
+    Route::get('users/{id}/role/{idPermission}/detach', [RoleUserController::class, 'detachRoleProfile'])->name('users.role.detach');
+    Route::post('users/{id}/roles', [RoleUserController::class, 'attachRolesProfile'])->name('users.roles.attach');
+    Route::any('users/{id}/roles/create', [RoleUserController::class, 'rolesAvailable'])->name('users.roles.available');
+    Route::get('users/{id}/roles', [RoleUserController::class, 'roles'])->name('users.roles');
+    Route::get('roles/{id}/users', [RoleUserController::class, 'users'])->name('roles.users');
+
+
     //routes role x permission
     Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionProfile'])->name('roles.permission.detach');
     Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsProfile'])->name('roles.permissions.attach');
     Route::any('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
     Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
     Route::get('permissions/{id}/role', [PermissionRoleController::class, 'roles'])->name('permission.roles');
-
-
 
     //routes tenants 
     Route::any('roles/search', [RolesController::class, 'search'])->name('roles.search');
