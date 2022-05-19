@@ -25,8 +25,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 
     //routes role x user
-    Route::get('users/{id}/role/{idPermission}/detach', [RoleUserController::class, 'detachRoleProfile'])->name('users.role.detach');
-    Route::post('users/{id}/roles', [RoleUserController::class, 'attachRolesProfile'])->name('users.roles.attach');
+    Route::get('users/{id}/role/{idPermission}/detach', [RoleUserController::class, 'detachRoleUser'])->name('users.role.detach');
+    Route::post('users/{id}/roles', [RoleUserController::class, 'attachRolesUser'])->name('users.roles.attach');
     Route::any('users/{id}/roles/create', [RoleUserController::class, 'rolesAvailable'])->name('users.roles.available');
     Route::get('users/{id}/roles', [RoleUserController::class, 'roles'])->name('users.roles');
     Route::get('roles/{id}/users', [RoleUserController::class, 'users'])->name('roles.users');
