@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\UserACLTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +14,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    use UserACLTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -56,6 +58,9 @@ class User extends Authenticatable
         return $query->where('tenant_id', auth()->user()->tenant_id);
     }
 
+    /**
+     * Tenant
+     */
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);

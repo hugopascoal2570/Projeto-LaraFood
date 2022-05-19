@@ -242,36 +242,43 @@ return [
             'text'        => 'Planos',
             'url'         => 'admin/plans',
             'icon'        => 'fa fa-solid fa-list',
+            'can'         => 'plans'
         ],
         [
             'text'        => 'Perfis',
             'url'         => 'admin/profiles',
             'icon'        => 'fa fa-solid fa-address-card',
+            'can'         => 'profiles'
         ],
         [
             'text'        => 'Permissões',
             'url'         => 'admin/permissions',
             'icon'        => 'fa fa-solid fa-lock',
+            'can'         => 'permissions'
         ],
         [
             'text'        => 'Usuários',
             'url'         => 'admin/users',
             'icon'        => 'fa fa-solid fa-users',
+            'can'         => 'users',
         ],
         [
             'text'        => 'Categorias',
             'url'         => 'admin/categories',
             'icon'        => 'fa fa-solid fa-layer-group',
+            'can'         => 'categories'
         ],
         [
             'text'        => 'Produtos',
             'url'         => 'admin/products',
             'icon'        => 'fa fa-solid fas fa-hamburger',
+            'can'         => 'products'
         ],
         [
             'text'        => 'Mesas',
             'url'         => 'admin/tables',
             'icon'        => 'fa fa-solid fas fa-tablet-alt',
+            'can'         => 'tables'
         ],
     ],
 

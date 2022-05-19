@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
+
     //routes tables 
     Route::any('tables/search', [TableController::class, 'search'])->name('tables.search');
     Route::resource('tables', TableController::class);
