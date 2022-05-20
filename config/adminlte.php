@@ -260,7 +260,7 @@ return [
             'text'        => 'Cargos',
             'url'         => 'admin/roles',
             'icon'        => 'fas fa-address-card',
-
+            'can'         => 'roles'
         ],
         [
             'text'        => 'Usuários',
